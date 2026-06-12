@@ -3,7 +3,9 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export const registerUser=async(req,res)=>{
+    
     try{
+        console.log("Hello")
         const{name,username,email,phoneNo,password}=req.body;
 
         if(!name||!username||!email||!phoneNo||!password){
@@ -26,7 +28,7 @@ export const registerUser=async(req,res)=>{
         await nweUser.save()
 
         const token=jwt.sign(
-            {id:nweUser.username,email:nweUser.email},
+            {id:nweUser.username,email:email},
             process.env.JWT_SECRET,
             {expiresIn:"7d"}
         )
