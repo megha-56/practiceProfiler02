@@ -26,7 +26,7 @@ export const registerUser=async(req,res)=>{
         await nweUser.save()
 
         const token=jwt.sign(
-            {id:username.username,email:username.email},
+            {id:nweUser.username,email:nweUser.email},
             process.env.JWT_SECRET,
             {expiresIn:"7d"}
         )
