@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import connectDb from './src/db/connectDb.js';
 
 //2
 const app=express();
@@ -18,6 +19,7 @@ app.get('/',(req,res)=>{
 })
 
 app.listen(port,()=>{
+    connectDb();
     console.log("Server is running at port",port);
 })
 
