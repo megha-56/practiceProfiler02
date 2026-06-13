@@ -2,7 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-dotenv.config();
+
 import connectDb from './src/db/connectDb.js';
 import userRoutes from './src/routes/user.routes.js'; 
 
@@ -13,6 +13,7 @@ const app=express();
 //3
 
 app.use(cors());
+dotenv.config();
 
 
 //4 get and listen
@@ -30,25 +31,3 @@ app.listen(port,()=>{
     console.log("Server is running at port",port);
 })
 
-// dotenv.config();
-// const app = express();
-
-// app.use(cors());
-// app.use(express.json());
-// app.use('/api/user', userRoutes);
-
-// const port = process.env.PORT;
-
-// const startServer = async () => {
-//     try {
-//         await connectDb();
-//         app.listen(port, () => {
-//             console.log("Server is running at port", port);
-//         });
-//     } catch (error) {
-//         console.error("Failed to start server:", error);
-//         process.exit(1);
-//     }
-// };
-
-// startServer();
